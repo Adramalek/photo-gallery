@@ -1,18 +1,18 @@
 <template>
   <div>
-    <Gallery />
+    <Slider />
     <Photo />
   </div>
 </template>
 
 <script>
-import Gallery from '@/components/Gallery.vue';
+import Slider from '@/components/Slider.vue';
 import Photo from '@/components/Photo.vue';
 
 export default {
   name: 'photo',
   components: {
-    Gallery,
+    Slider,
     Photo,
   },
 };

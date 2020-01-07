@@ -1,16 +1,10 @@
 <template>
   <div class="lightbox" @click.self="closeLightbox">
-    <img :src="photoUrl(photo.filename)">
+    <img v-if="photo.id > 1" class="rotate" :src="photoUrl(photo.filename)" alt="">
+    <img v-if="photo.id <= 1" :src="photoUrl(photo.filename)" alt="">
     <div class="lightbox-info">
       <div class="lightbox-info-inner">
-        <p v-if="photo.title">{{ photo.title }}</p>
-        <p v-if="photo.location">{{ photo.location }}</p>
-        <p v-if="photo.photographer">
-          <a rel="nofollow" :href="photo.photographer.url">{{ photo.photographer.name }}</a>
-        </p>
-        <p v-if="photo.source">
-          via <a rel="nofollow" :href="photo.source.url">{{ photo.source.name }}</a>
-        </p>
+        <p v-if="photo.memory">{{photo.memory}}</p>
       </div>
     </div>
   </div>
@@ -28,9 +22,7 @@ export default {
   },
   computed: {
     photo() {
-      return this.photos.find((photo) => {
-        return photo.id === Number(this.$route.params.id);
-      });
+      return this.photos.find(photo => photo.id === Number(this.$route.params.id));
     },
   },
   methods: {
@@ -71,5 +63,10 @@ export default {
     background-color: #FFFFFF;
     display: inline-block;
     padding: 2rem;
+  }
+
+  .rotate {
+    transform-origin: center;
+    transform: rotate(90deg);
   }
 </style>

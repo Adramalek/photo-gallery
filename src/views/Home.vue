@@ -1,14 +1,15 @@
 <template>
-  <Gallery />
+  <Slider />
 </template>
 
 <script>
-import Gallery from '@/components/Gallery.vue';
+// import Gallery from '@/components/Gallery.vue';
+import Slider from '@/components/Slider.vue';
 
 export default {
   name: 'home',
   components: {
-    Gallery,
+    Slider,
   },
 };
 </script>
