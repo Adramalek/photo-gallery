@@ -75,7 +75,7 @@ export default {
       return require(`../assets/images/thumbnails/${filename}`);
     },
     startSlide() {
-      this.timer = setInterval(this.next, 20000);
+      this.timer = setInterval(this.next, 10000);
     },
     next() {
       if (this.currentInd + 1 === this.images.length) {
